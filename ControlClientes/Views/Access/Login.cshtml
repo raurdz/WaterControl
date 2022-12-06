@@ -1,0 +1,76 @@
+﻿@model ControlClientes.Models.VMLogin;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ControlClientes.styles.css" asp-append-version="true" />
+</head>
+<br />
+<br />
+<br />
+
+<body>
+    <center>
+        <br />
+        <h1 class="display-4 text-black">Control Horas Clientes</h1>
+        <br />
+        <br />
+        <br />
+
+        <form class="card text-center" style="width:18rem; height:max-content; background-color:whitesmoke"
+        asp-controller="Access" asp-action="Login" method="post">
+        <br />
+        <h4 class="text-black">Inicio de Sesión</h4>
+
+        <div>
+            <br />
+            <input type="text" placeholder="Usuario" class="input" asp-for="User" required="">      
+        </div>
+
+        <div>
+            <br />
+            <input type="password" placeholder="Contraseña" class="input" asp-for="PassWord" required="">
+        </div>
+        
+
+        <label class="text-black">
+            <br />
+            <input type="checkbox" asp-for="KeepLoggedIn" />
+            Mantener Inicio de sesión
+
+        </label>
+
+            <div>
+                <br />
+                <button>Iniciar Sesion</button>
+                <br />
+            </div>
+            <br />
+        </form>
+
+        <div>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+
+                <br />
+                <div class="alert alert-danger card-body text-center" style="width:18rem;" role="alert">
+                    @ViewData["ValidateMessage"]
+                </div>
+
+            }
+            </div>      
+            <br />
+        <footer class="fixed-bottom border-bottom text-black">
+            Escala 2022 Copyright
+        </footer>
+    </center>
+</body>
+</html>
